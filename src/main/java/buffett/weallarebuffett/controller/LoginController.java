@@ -21,4 +21,9 @@ public class LoginController {
         return "/login";
     }
 
+    /*@GetMapping("/newnew")
+    public void logout(Model mode) {
+
+    }*/
+
 }
