@@ -14,6 +14,8 @@ import java.util.Collection;
 @Entity
 @Table(name = "member")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+@AllArgsConstructor
 public class MemberEntity implements UserDetails {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,24 +37,6 @@ public class MemberEntity implements UserDetails {
 
     private LocalDateTime regDt;
     private Boolean auth;
-
-
-    public MemberEntity(String username, String email, String password, String phone) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.phone = phone;
-        this.memberCate = MemberCategory.NON_AUTH;
-        this.follower = 0L;
-        this.following = 0L;
-        this.regDt = LocalDateTime.now();
-        this.auth = false;
-    }
-
-    public MemberEntity(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
