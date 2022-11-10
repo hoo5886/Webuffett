@@ -29,6 +29,7 @@
 ## 🔰 ERD
 <img width="1129" alt="image" src="https://user-images.githubusercontent.com/102225706/197369868-11edb87d-457c-4854-9f0a-7cc0f63d1204.png">
 <svg xmlns="http://www.w3.org/2000/svg" width="106" height="20" role="img" aria-label="coverage: 0.01%">
+    ![test coverage](.github/badges/jacoco.svg)
     <linearGradient id="s" x2="0" y2="100%">
         <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
         <stop offset="1" stop-opacity=".1"/>
@@ -47,4 +48,5 @@
         <text aria-hidden="true" x="825" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="350">0.01%</text>
         <text x="825" y="140" transform="scale(.1)" fill="#fff" textLength="350">0.01%</text>
     </g>
+    
 </svg>
