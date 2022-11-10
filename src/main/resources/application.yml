@@ -1,0 +1,39 @@
+spring:
+  devtools:
+    remote:
+      restart:
+        enabled: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/buffett?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  security:
+    user:
+      name: user
+      password: 1234
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: "hoo5886@gmail.com"
+    password: "안알려주지~"
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
+

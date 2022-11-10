@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{/layout}">
+<head th:replace="fragments/head :: head">
+  <meta charset="UTF-8">
+</head>
+<th:block th:replace="/fragments/bodyHeader :: bodyHeader"/>
+<style>
+  .fieldError {
+    border-color: #bd2130;
+  }
+</style>
+<body>
+  <div class="layout">
+    <table>
+      <thead>
+        <tr>
+          <th>제목</th>
+          <th>내용</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="notice : ${notice}">
+          <td th:text="${notice.id}">1</td>
+          <td>
+            <a th:text="${notice.title}" th:href="@{/notice/view(id=${notice.id})}"></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+<div th:replace="fragments/footer :: footer" />
+</html>

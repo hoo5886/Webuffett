@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <meta charset="UTF-8">
+</head>
+<style>
+    .fieldError {
+        border-color: #bd2130;
+    }
+</style>
+<body>
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <h1>로그인에 실패하였습니다.</h1>
+    <p>다시 로그인을 해주세요.</p>
+    <div th:replace="fragments/footer :: footer" />
+</div>
+</body>
+</html>

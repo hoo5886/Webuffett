@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{/layout}">
+<head th:replace="fragments/head :: head">
+  <meta charset="UTF-8">
+</head>
+<th:block th:replace="/fragments/bodyHeader :: bodyHeader"/>
+
+<style>
+  .fieldError {
+    border-color: #bd2130;
+  }
+</style>
+<th:block layout:fragment="content">
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
+    <h1>우리는 버핏</h1>
+    <form action ="/notice/post"
+
+
+  </div>
+
+
+</th:block>
+<div th:replace="fragments/footer :: footer"/>
+</html>

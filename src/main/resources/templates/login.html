@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <meta charset="UTF-8">
+</head>
+<style>
+    .fieldError {
+        border-color: #bd2130;
+    }
+</style>
+<body>
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+
+    <div class="container">
+
+        <form action="/loginProc" name="login" method="post">
+            <div>이메일: <input type="text" name="email"></div>
+            <div>비밀번호: <input type="password" name="password"></div>
+
+            <button type="submit"> 로그인 </button>
+            <a href="/members/new">회원가입</a>
+
+        </form>
+
+    <div th:replace="fragments/footer :: footer" />
+</div>
+</body>
+</html>
