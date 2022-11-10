@@ -1,7 +1,9 @@
 # 📈📉우리는 버핏
 
+
 ## 🐂🦮소개
 **지식은 나눠야만 가치가 있다!**<br>
+
 우리는 2020년 초 동학개미운동을 필두로 많은 청년을 포함하여 중장년층들이 주식시장에 대거 입문하였습니다.
 하지만 주식이 뭔지 경제가 뭔지 제대로 아는 사람도 많이 없었으며 대출을 받아 투자를 하고 코인을 사는 등 수많은 가계에 큰 피해를 누적시켜왔습니다.<br><br>
 `우리는 버핏`은 사람들에게 그동안 우리 인류가 쌓아온 전 세계에 흩어져있는 수많은 경제와 주식에 대한 지식들을 한 데 모아,
@@ -29,6 +31,7 @@
 ## 🔰 ERD
 <img width="1129" alt="image" src="https://user-images.githubusercontent.com/102225706/197369868-11edb87d-457c-4854-9f0a-7cc0f63d1204.png">
 <svg xmlns="http://www.w3.org/2000/svg" width="106" height="20" role="img" aria-label="coverage: 0.01%">
+![test coverage](.github/badges/jacoco.svg)
     <linearGradient id="s" x2="0" y2="100%">
         <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
         <stop offset="1" stop-opacity=".1"/>
@@ -47,4 +50,5 @@
         <text aria-hidden="true" x="825" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="350">0.01%</text>
         <text x="825" y="140" transform="scale(.1)" fill="#fff" textLength="350">0.01%</text>
     </g>
+
 </svg>
