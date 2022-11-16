@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+  <meta charset="UTF-8">
+</head>
+<style>
+  .fieldError {
+    border-color: #bd2130;
+  }
+</style>
+<body>
+  <th:block th:replace="/fragments/bodyHeader :: bodyHeader"/>
+
+  <div class="layout">
+    <h1> 로그인 성공 후 메인 페이지</h1>
+    <table>
+      <thead>
+
+      </thead>
+      <tbody>
+        <div th:value="${HI}"/>
+      </tbody>
+    </table>
+    <div th:replace="fragments/footer :: footer" />
+  </div>
+</body>
+
+</html>

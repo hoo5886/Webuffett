@@ -41,6 +41,6 @@ public class NoticeController {
     public String noticeList(Model model) {
         List<NoticeEntity> notices = noticeService.list();
         model.addAttribute("notices", notices);
-        return "/notice/mainNotice";
+        return "main";
     }
 }
