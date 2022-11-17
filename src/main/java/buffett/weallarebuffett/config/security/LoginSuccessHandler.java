@@ -24,6 +24,6 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
 
         log.info("오늘도 시뻘건 하루를!");
 
-        response.sendRedirect("/loginSuccess");
+        response.sendRedirect("/notice/list");
     }
 }

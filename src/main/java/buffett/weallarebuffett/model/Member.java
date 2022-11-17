@@ -1,5 +1,8 @@
 package buffett.weallarebuffett.model;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,6 +17,8 @@ import org.hibernate.validator.constraints.Length;
 @AllArgsConstructor
 @Builder
 public class Member {
+
+    private Long memberId;
 
     @NotEmpty(message = "회원이름은 필수입니다.")
     private String username;
@@ -33,13 +38,17 @@ public class Member {
     private long following;
     private long follower;
 
+    private List<NoticeEntity> notices = new ArrayList<>();
+
     private LocalDateTime regDt;
     private Boolean auth;
+
 
     //Member -> MemberEntity로 변환 후 -> MemberRepository 전송
     public MemberEntity toEntity() {
         MemberEntity member = MemberEntity.builder()
                 .username(username)
+                .id(memberId)
                 .email(email)
                 .password(password)
                 .phone(phone)
@@ -48,6 +57,7 @@ public class Member {
                 .following(0)
                 .regDt(LocalDateTime.now())
                 .auth(false)
+                .notices(notices)
                 .build();
 
         return member;
