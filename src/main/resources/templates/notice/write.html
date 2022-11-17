@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+  <meta charset="UTF-8">
+</head>
+<style>
+  .fieldError {
+    border-color: #bd2130;
+  }
+</style>
+<body>
+  <div class="container">
+    <th:block th:replace="/fragments/bodyHeader :: bodyHeader"/>
+
+    <form name="write-form" action="/notice/write" th:object="${notice}" method="post">
+
+      <div>
+
+        <label th:for="title">제목</label>
+        <input type="text" th:field="*{title}" class="write-form-control" placeholder="최대 30자">
+        <br />
+        <br />
+        <div id="content_div">
+          <textarea class="form-control" style="height:100%; width:100%;" maxlength='1000' id="content" name = "content"
+          th:field="*{content}" placeholder="내용을 입력하세요."></textarea>
+
+        </div>
+        <br />
+        <input type="submit" id="submiBtn"  class="btn btn-outline-primary mr-2" value="작성">
+      </div>
+
+    </form>
+
+
+    <div th:replace="fragments/footer :: footer" />
+  </div>
+</body>
+
+</html>

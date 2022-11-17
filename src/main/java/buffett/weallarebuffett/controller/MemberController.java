@@ -2,6 +2,7 @@ package buffett.weallarebuffett.controller;
 
 import buffett.weallarebuffett.model.Member;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import buffett.weallarebuffett.service.MemberService;
@@ -34,6 +35,6 @@ public class MemberController {
         }
 
         memberService.join(member);
-        return "/notice/mainNotice";
+        return "/notice/main";
     }
 }

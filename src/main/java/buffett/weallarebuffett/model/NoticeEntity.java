@@ -12,11 +12,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Getter
-@Setter
 @Builder
 @Table(name = "notice")
 @NoArgsConstructor
@@ -34,4 +32,8 @@ public class NoticeEntity {
     private String content;
     private LocalDateTime regDt;
     private long hit;
+
+    public void setMember(MemberEntity member) {
+        this.member = member;
+    }
 }

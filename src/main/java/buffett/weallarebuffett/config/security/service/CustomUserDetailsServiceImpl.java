@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @RequiredArgsConstructor
 public class CustomUserDetailsServiceImpl implements UserDetailsService {
-
     private final MemberRepository memberRepository;
 
     @Override

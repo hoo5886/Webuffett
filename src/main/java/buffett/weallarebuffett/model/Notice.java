@@ -1,6 +1,8 @@
 package buffett.weallarebuffett.model;
 
 import java.time.LocalDateTime;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,12 +17,13 @@ public class Notice {
     private String title;
     private String content;
 
+    private String name;
+
     private LocalDateTime regDt;
 
     private long hit;
 
     public NoticeEntity toEntity() {
-
         NoticeEntity notice = NoticeEntity.builder()
             .title(title)
             .content(content)

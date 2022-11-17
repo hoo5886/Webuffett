@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+  <meta charset="UTF-8">
+</head>
+<style>
+  .fieldError {
+    border-color: #bd2130;
+  }
+</style>
+<body>
+  <div class="container" style="max-width: 1000px">
+    <th:block th:replace="/fragments/bodyHeader :: bodyHeader"/>
+    <div class="py-5 text-center">
+      <h2>글 목록</h2>
+    </div>
+
+    <div class="row" th:object="${notices}">
+      <div class="col">
+        <button class="btn btn-primary float-end"
+        onclick="location.href='write.html'"
+        th:onclick="|location.href='@{/notice/write}'|"
+        type="button">글 등록</button>
+      </div>
+    </div>
+
+    <div>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>조회수</th>
+          <th>등록일</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="notice : ${notices}">
+          <td><a href="item.html" th:href="@{/boards/{uid}(uid=${notice.getId()})}" th:text="*{notice.getId()}">글 ID</a></td>
+          <td><a href="item.html" th:href="@{/boards/{uid}(uid=${notice.getTitle()})}" th:text="*{notice.getTitle()}">제목</a></td>
+          <td th:text="*{notice.getMember().getEmail()}">작성자</td>
+          <td th:text="*{notice.getHit()}">조회수</td>
+          <td th:text="*{notice.getRegDt()}">등록일</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div th:replace="fragments/footer :: footer" />
+  </div>
+</body>
+
+</html>
