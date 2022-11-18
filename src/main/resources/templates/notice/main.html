@@ -38,11 +38,11 @@
         </thead>
         <tbody>
         <tr th:each="notice : ${notices}">
-          <td><a href="item.html" th:href="@{/boards/{uid}(uid=${notice.getId()})}" th:text="*{notice.getId()}">글 ID</a></td>
-          <td><a href="item.html" th:href="@{/boards/{uid}(uid=${notice.getTitle()})}" th:text="*{notice.getTitle()}">제목</a></td>
+          <td th:text="*{notice.getId()}">글 ID</td>
+          <td><a href="item.html" th:href="@{/notice/read/{uid}(uid=${notice.getId()})}" th:text="*{notice.getTitle()}">제목</a></td>
           <td th:text="*{notice.getMember().getEmail()}">작성자</td>
           <td th:text="*{notice.getHit()}">조회수</td>
-          <td th:text="*{notice.getRegDt()}">등록일</td>
+          <td th:text="${#temporals.format(notice.getRegDt(), 'yyyy-MM-dd HH:mm')}">등록일</td>
         </tr>
         </tbody>
       </table>

@@ -8,4 +8,6 @@ public interface NoticeRepository extends JpaRepository<NoticeEntity, Long> {
 
     List<NoticeEntity> findAll();
 
+    NoticeEntity findByTitle(String title);
+
 }

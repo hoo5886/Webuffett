@@ -7,6 +7,7 @@ import buffett.weallarebuffett.model.NoticeEntity;
 import buffett.weallarebuffett.repository.MemberRepository;
 import buffett.weallarebuffett.repository.NoticeRepository;
 import java.util.List;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,8 @@ public class NoticeService {
             .orElseThrow(() -> new RuntimeException("회원이 없슴다"));
         NoticeEntity noticeEntity = notice.toEntity();
 
+        //등록일 포매팅 yyyy-MM-dd HH:mm
+
         noticeEntity.setMember(member);
 
         return noticeRepository.save(noticeEntity).getId();
@@ -34,5 +37,13 @@ public class NoticeService {
     public List<NoticeEntity> list() {
 
         return noticeRepository.findAll();
+    }
+
+    @Transactional
+    public long upHit(NoticeEntity noticeEntity) {
+
+        noticeEntity.upHit();
+
+        return noticeRepository.save(noticeEntity).getId();
     }
 }

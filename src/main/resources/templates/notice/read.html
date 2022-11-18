@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+  <meta charset="UTF-8">
+</head>
+<style>
+  .fieldError {
+    border-color: #bd2130;
+  }
+</style>
+<body>
+  <div class="container">
+    <th:block th:replace="/fragments/bodyHeader :: bodyHeader"/>
+    <table class="read-form" th:object="${foundNotice}" method="post">
+      <tbody>
+      <tr>
+        <th th:text="*{title}">제목</th>
+      </tr>
+      <tr>
+        <td th:text="*{content}">내용</td>
+      </tr>
+      </tbody>
+
+    </table>
+    </div>
+    <div th:replace="fragments/footer :: footer" />
+  </div>
+</body>
+
+</html>
