@@ -3,9 +3,11 @@ package buffett.weallarebuffett.controller;
 import buffett.weallarebuffett.model.MemberEntity;
 import buffett.weallarebuffett.model.Notice;
 import buffett.weallarebuffett.model.NoticeEntity;
+import buffett.weallarebuffett.repository.NoticeRepository;
 import buffett.weallarebuffett.service.NoticeService;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -24,23 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class NoticeController {
 
     private final NoticeService noticeService;
-
-    /*@GetMapping("/post")
-    public String post(Model model) {
-        model.addAttribute("notice", new Notice());
-
-        return "notice/postNotice";
-    }
-
-    @PostMapping("/post")
-    public String postProc(@Valid Notice notice, BindingResult result) {
-        if (result.hasErrors()) {
-            return "/notice/Notice";
-        }
-
-        noticeService.post(notice);
-        return "notice/postNotice";
-    }*/
+    private final NoticeRepository noticeRepository;
 
     @GetMapping("/list")
     public String noticeList(Model model) {
@@ -70,5 +56,18 @@ public class NoticeController {
         noticeService.post(memberEntity.getId(), notice);
 
         return "redirect:/notice/list";
+    }
+
+    @GetMapping("/read/{id}")
+    public String read(@PathVariable Long id, Model model) {
+
+        NoticeEntity foundNotice = noticeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("존재하지 않는 게시물입니다."));
+
+        noticeService.upHit(foundNotice);
+
+        model.addAttribute("foundNotice", foundNotice);
+
+        return "notice/read";
     }
 }

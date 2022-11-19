@@ -36,4 +36,8 @@ public class NoticeEntity {
     public void setMember(MemberEntity member) {
         this.member = member;
     }
+
+    public void upHit() {
+        this.hit += 1;
+    }
 }
