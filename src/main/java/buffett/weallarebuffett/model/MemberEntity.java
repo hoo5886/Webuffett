@@ -23,7 +23,10 @@ public class MemberEntity implements UserDetails {
     private long id;
 
     @OneToMany(mappedBy = "member")
-    private List<NoticeEntity> notices = new ArrayList<>();
+    private List<NoticeEntity> noticeEntities = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member")
+    private List<CommentEntity> commentEntities = new ArrayList<>();
 
     private String username;
     private String email;

@@ -2,12 +2,11 @@ package buffett.weallarebuffett.service;
 
 
 import buffett.weallarebuffett.model.MemberEntity;
-import buffett.weallarebuffett.model.Notice;
+import buffett.weallarebuffett.model.NoticeDto;
 import buffett.weallarebuffett.model.NoticeEntity;
 import buffett.weallarebuffett.repository.MemberRepository;
 import buffett.weallarebuffett.repository.NoticeRepository;
 import java.util.List;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -22,14 +21,14 @@ public class NoticeService {
     private final MemberRepository memberRepository;
 
     @Transactional
-    public long post(Long memberId, Notice notice) {
-        MemberEntity member = memberRepository.findById(memberId)
-            .orElseThrow(() -> new RuntimeException("회원이 없슴다"));
-        NoticeEntity noticeEntity = notice.toEntity();
+    public long post(Long memberId, NoticeDto noticeDto) {
+        MemberEntity memberEntity = memberRepository.findById(memberId)
+            .orElseThrow(() -> new RuntimeException("존재하지 않는 회원입니다."));
+        NoticeEntity noticeEntity = noticeDto.toEntity();
 
         //등록일 포매팅 yyyy-MM-dd HH:mm
 
-        noticeEntity.setMember(member);
+        noticeEntity.setMember(memberEntity);
 
         return noticeRepository.save(noticeEntity).getId();
     }

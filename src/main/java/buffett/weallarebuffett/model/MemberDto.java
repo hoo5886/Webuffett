@@ -2,7 +2,6 @@ package buffett.weallarebuffett.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +15,7 @@ import org.hibernate.validator.constraints.Length;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Member {
+public class MemberDto {
 
     private Long memberId;
 
@@ -38,7 +37,7 @@ public class Member {
     private long following;
     private long follower;
 
-    private List<NoticeEntity> notices = new ArrayList<>();
+    private List<NoticeEntity> noticeEntities = new ArrayList<>();
 
     private LocalDateTime regDt;
     private Boolean auth;
@@ -57,7 +56,7 @@ public class Member {
                 .following(0)
                 .regDt(LocalDateTime.now())
                 .auth(false)
-                .notices(notices)
+                .noticeEntities(noticeEntities)
                 .build();
 
         return member;

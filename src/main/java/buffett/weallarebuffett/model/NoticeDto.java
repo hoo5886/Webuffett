@@ -1,9 +1,8 @@
 package buffett.weallarebuffett.model;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Notice {
+public class NoticeDto {
 
     private String title;
     private String content;
@@ -22,17 +21,18 @@ public class Notice {
 
     private LocalDateTime regDt;
 
+    private List<CommentDto> commentDtos = new ArrayList<>();
+
     private long hit;
 
     public NoticeEntity toEntity() {
-        NoticeEntity notice = NoticeEntity.builder()
+        NoticeEntity noticeEntity = NoticeEntity.builder()
             .title(title)
             .content(content)
             .regDt(LocalDateTime.now())
             .hit(0)
             .build();
 
-        return notice;
+        return noticeEntity;
     }
-
 }

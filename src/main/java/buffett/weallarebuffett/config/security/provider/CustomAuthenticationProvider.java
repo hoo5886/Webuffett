@@ -27,15 +27,15 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String password = (String) authentication.getCredentials();
 
         // 이메일 검증
-        MemberEntity member = (MemberEntity) userDetailsService.loadUserByUsername(username);
+        MemberEntity memberEntity = (MemberEntity) userDetailsService.loadUserByUsername(username);
 
         // 비밀번호 검증
-        if(!passwordEncoder.matches(password, member.getPassword())) {
+        if(!passwordEncoder.matches(password, memberEntity.getPassword())) {
             throw new BadCredentialsException("비밀번호가 일치하지 않습니다.");
         }
 
         UsernamePasswordAuthenticationToken token
-                = new UsernamePasswordAuthenticationToken(member, null, null);
+                = new UsernamePasswordAuthenticationToken(memberEntity, null, null);
         return token;
     }
 
