@@ -19,10 +19,10 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String email)
             throws UsernameNotFoundException {
 
-        MemberEntity member = this.memberRepository.findByEmail(email)
+        MemberEntity memberEntity = this.memberRepository.findByEmail(email)
             .orElseThrow(
                 () -> new UsernameNotFoundException("couldn't find user email -> " + email));
 
-        return member;
+        return memberEntity;
     }
 }

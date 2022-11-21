@@ -1,8 +1,7 @@
 package buffett.weallarebuffett.controller;
 
-import buffett.weallarebuffett.model.Member;
+import buffett.weallarebuffett.model.MemberDto;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import buffett.weallarebuffett.service.MemberService;
@@ -23,18 +22,18 @@ public class MemberController {
 
     @GetMapping(value = "/new")
     public String join(Model model) {
-        model.addAttribute("member", new Member());
+        model.addAttribute("member", new MemberDto());
 
         return "members/createMemberForm";
     }
 
     @PostMapping(value = "new")
-    public String joinProc(@Valid Member member, BindingResult result) {
+    public String joinProc(@Valid MemberDto memberDto, BindingResult result) {
         if (result.hasErrors()) {
             return "members/createMemberForm";
         }
 
-        memberService.join(member);
+        memberService.join(memberDto);
         return "/notice/main";
     }
 }
